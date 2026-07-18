@@ -1,139 +1,73 @@
-class Group:
-    """
-    A class to represent a group which can contain sub-groups and users.
+class Group(object):
+    def __init__(self, _name):
+        self.name = _name
+        self.groups = []
+        self.users = []
 
-    Attributes:
-    -----------
-    name : str
-        The name of the group.
-    groups : list[Group]
-        A list of sub-groups within this group.
-    users : list[str]
-        A list of users in this group.
-    """
-
-    def __init__(self, _name: str) -> None:
-        """
-        Constructs all the necessary attributes for the Group object.
-
-        Parameters:
-        -----------
-        _name : str
-            The name of the group.
-        """
-        self.name: str = _name
-        self.groups: list[Group] = []
-        self.users: list[str] = []
-
-    def add_group(self, group: 'Group') -> None:
-        """
-        Add a sub-group to this group.
-
-        Parameters:
-        -----------
-        group : Group
-            The sub-group to be added.
-        """
+    def add_group(self, group):
         self.groups.append(group)
 
-    def add_user(self, user: str) -> None:
-        """
-        Add a user to this group.
-
-        Parameters:
-        -----------
-        user : str
-            The user to be added.
-        """
+    def add_user(self, user):
         self.users.append(user)
 
-    def get_groups(self) -> list['Group']:
-        """
-        Get the list of sub-groups in this group.
-
-        Returns:
-        --------
-        list[Group]
-            A list of sub-groups.
-        """
+    def get_groups(self):
         return self.groups
 
-    def get_users(self) -> list[str]:
-        """
-        Get the list of users in this group.
-
-        Returns:
-        --------
-        list[str]
-            A list of users.
-        """
+    def get_users(self):
         return self.users
 
-    def get_name(self) -> str:
-        """
-        Get the name of this group.
-
-        Returns:
-        --------
-        str
-            The name of the group.
-        """
+    def get_name(self):
         return self.name
 
 
-def is_user_in_group(user: str, group: Group) -> bool:
+def is_user_in_group(user, group):
     """
-    Check if a user is in the given group or any of its sub-groups.
+    Return True if user is in the group, False otherwise.
 
-    Parameters:
-    -----------
-    user : str
-        The user to be checked.
-    group : Group
-        The group in which to search for the user.
-
-    Returns:
-    --------
-    bool
-        True if the user is found in the group or any sub-group, False otherwise.
+    Args:
+        user (str): User name/id
+        group (Group): Group to search
     """
-    if user is None:
+
+    # Edge case
+    if user is None or group is None:
         return False
 
-    # Use a stack to implement an iterative depth-first search
-    stack = [group]
+    # Check current group's users
+    if user in group.get_users():
+        return True
 
-    while stack:
-        current_group = stack.pop()
-        # Check if the user is directly in this group
-        if user in current_group.get_users():
+    # Recursively check child groups
+    for child_group in group.get_groups():
+        if is_user_in_group(user, child_group):
             return True
-
-        # Add all subgroups to the stack for further exploration
-        stack.extend(current_group.get_groups())
 
     return False
 
-if __name__ == "__main__":
-    # Testing the implementation
+#Test Case 1
+parent = Group("parent")
+child = Group("child")
+sub_child = Group("subchild")
 
-    # Creating groups and users
-    parent = Group("parent")
-    child = Group("child")
-    sub_child = Group("subchild")
+sub_child_user = "sub_child_user"
 
-    sub_child_user = "sub_child_user"
-    sub_child.add_user(sub_child_user)
+sub_child.add_user(sub_child_user)
+child.add_group(sub_child)
+parent.add_group(child)
 
-    child.add_group(sub_child)
-    parent.add_group(child)
+print(is_user_in_group("sub_child_user", parent))
+# Expected Output: True
 
-    # Test Case 1: User is in a nested subgroup
-    print("Test Case 1")
-    print(is_user_in_group("sub_child_user", parent))  # Expected output: True
+#Test Case 2 - User Not Present
+print(is_user_in_group("unknown_user", parent))
+# Expected Output: False
 
-    # Test Case 2
-    pass
+#Test Case 3 - Null Group
+print(is_user_in_group("sub_child_user", None))
+# Expected Output: False
 
-    # Test Case 3
-    pass
+#additional edge case - Emplty Group
+empty_group = Group("empty")
+
+print(is_user_in_group("user1", empty_group))
+# Expected Output: False
