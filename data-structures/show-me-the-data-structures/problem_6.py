@@ -111,8 +111,8 @@ if __name__ == "__main__":
         linked_list_2.append(i)
 
     print("Test Case 1:")
-    print("Union:", union(linked_list_1, linked_list_2))
-    print("Intersection:", intersection(linked_list_1, linked_list_2))
+    print("Union:", union(linked_list_1, linked_list_2))                #output - Union: 32 -> 65 -> 2 -> 35 -> 3 -> 4 -> 6 -> 1 -> 9 -> 11 -> 21 ->
+    print("Intersection:", intersection(linked_list_1, linked_list_2))  #output - Intersection: 6 -> 4 -> 21 ->
 
     # Test Case 2
     linked_list_3 = LinkedList()
@@ -128,8 +128,8 @@ if __name__ == "__main__":
         linked_list_4.append(i)
 
     print("\nTest Case 2:")
-    print("Union:", union(linked_list_3, linked_list_4))
-    print("Intersection:", intersection(linked_list_3, linked_list_4))
+    print("Union:", union(linked_list_3, linked_list_4)                  #output - 1 -> 2 -> 3 ->
+    print("Intersection:", intersection(linked_list_3, linked_list_4))   #output - blank
 
     # Test Case 3 (One Empty List)
     linked_list_5 = LinkedList()
@@ -140,13 +140,13 @@ if __name__ == "__main__":
     linked_list_6.append(3)
 
     print("\nTest Case 3:")
-    print("Union:", union(linked_list_5, linked_list_6))
-    print("Intersection:", intersection(linked_list_5, linked_list_6))
+    print("Union:", union(linked_list_5, linked_list_6)                 #output - 1 -> 2 -> 3 ->
+    print("Intersection:", intersection(linked_list_5, linked_list_6)   #output - blank
 
     # Test Case 4 (Both Lists Empty)
     linked_list_7 = LinkedList()
     linked_list_8 = LinkedList()
 
     print("\nTest Case 4:")
-    print("Union:", union(linked_list_7, linked_list_8))
-    print("Intersection:", intersection(linked_list_7, linked_list_8))
+    print("Union:", union(linked_list_7, linked_list_8))                #output - blank
+    print("Intersection:", intersection(linked_list_7, linked_list_8))  #output - blank
