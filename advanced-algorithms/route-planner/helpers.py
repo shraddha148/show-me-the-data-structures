@@ -3,10 +3,10 @@ import pickle
 import chart_studio.plotly as py
 import random
 from plotly.graph_objs import Data, Figure, Layout, Line, Marker, Scatter, XAxis, YAxis
-from plotly.offline import init_notebook_mode, iplot
+from plotly.offline import download_plotlyjs, init_notebook_mode, plot, iplot
 from typing import Optional
 
-init_notebook_mode(connected=True)
+##init_notebook_mode(connected=True)
 
 class Map:
     def __init__(self, G: nx.Graph) -> None:
