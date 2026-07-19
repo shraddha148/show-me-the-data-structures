@@ -16,29 +16,53 @@ from typing import Optional
 def get_min_max(ints: list[int]) -> Optional[tuple[int, int]]:
     """
     Return a tuple(min, max) out of list of unsorted integers.
-    
+
     Args:
-    ints (list[int]): list of integers containing one or more integers
+        ints (list[int]): List of integers
 
     Returns:
-    Optional[tuple[int, int]]: A tuple containing the minimum and maximum 
-    integer, or None if the list is empty
+        Optional[tuple[int, int]]: (min, max) or None if list is empty
     """
-    pass
+
+    if len(ints) == 0:
+        return None
+
+    minimum = ints[0]
+    maximum = ints[0]
+
+    for num in ints:
+
+        if num < minimum:
+            minimum = num
+
+        if num > maximum:
+            maximum = num
+
+    return (minimum, maximum)
+
 
 if __name__ == '__main__':
-    # Edge case: Empty input list
+
+    # Test Case 1: Empty input list
     print(get_min_max([]))
-    # Expected output: None
+    # Expected Output: None
 
-    # Normal case: list with negative and positive numbers
+    # Test Case 2: Negative and positive numbers
     print(get_min_max([-10, 0, 10, -20, 20]))
-    # Expected output: (-20, 20)
+    # Expected Output: (-20, 20)
 
-    # Normal case: list with large range of numbers
+    # Test Case 3: Large range of numbers
     print(get_min_max([1000, -1000, 500, -500, 0]))
-    # Expected output: (-1000, 1000)
+    # Expected Output: (-1000, 1000)
 
-    # Normal case: list with already sorted numbers
+    # Test Case 4: Already sorted numbers
     print(get_min_max([1, 2, 3, 4, 5]))
-    # Expected output: (1, 5)
+    # Expected Output: (1, 5)
+
+    # Test Case 5: Single element
+    print(get_min_max([42]))
+    # Expected Output: (42, 42)
+
+    # Test Case 6: All elements same
+    print(get_min_max([7, 7, 7, 7]))
+    # Expected Output: (7, 7)

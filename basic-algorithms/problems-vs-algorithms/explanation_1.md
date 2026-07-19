@@ -1,13 +1,23 @@
 <!--
 Problem 1: Square Root of an Integer
 
-Provide an explanation for your answer, clearly organizing your thoughts into 
-concise and easy-to-understand language.
+## Reasoning Behind Decisions
 
-Focus on explaining the reasoning behind your decisions rather than giving a 
-detailed description of the code. For instance, why did you choose a particular 
-data structure? Additionally, discuss the efficiency of your solution in terms 
-of time and space complexity. If necessary, you can support your explanation 
-with code snippets or mathematical formulas. For guidance on how to write 
-formulas in markdown, refer to https://docs.github.com/en/get-started/writing-on-github/working-with-advanced-formatting/writing-mathematical-expressions.
--->
+I used Binary Search because the search space is sorted.
+In each step, the algorithm compares the square of the middle element with the target and searches only the relevant half.
+This efficiently finds the floor value of the square root without checking every number.
+Edge cases such as 0, 1, and negative numbers are also handled.
+
+## Time Efficiency
+
+The algorithm uses Binary Search, which halves the search space in every iteration.
+
+Time Complexity: O(log n)
+
+This satisfies the expected time complexity for the problem.
+
+## Space Efficiency
+
+The algorithm only uses a few variables (left, right, and mid) regardless of the input size and does not use recursion or any extra data structures.
+
+Space Complexity: O(1)

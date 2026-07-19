@@ -1,13 +1,13 @@
-<!--
-Problem 4: Dutch National Flag Problem
+# Explanation
 
-Provide an explanation for your answer, clearly organizing your thoughts into
-concise and easy-to-understand language.
+## Reasoning Behind Decisions:
 
-Focus on explaining the reasoning behind your decisions rather than giving a 
-detailed description of the code. For instance, why did you choose a particular 
-data structure? Additionally, discuss the efficiency of your solution in terms 
-of time and space complexity. If necessary, you can support your explanation 
-with code snippets or mathematical formulas. For guidance on how to write 
-formulas in markdown, refer to https://docs.github.com/en/get-started/writing-on-github/working-with-advanced-formatting/writing-mathematical-expressions.
--->
+I used the Dutch National Flag algorithm because it sorts an array containing only 0s, 1s, and 2s in a single traversal, which is a key requirement of the problem. The algorithm uses three pointers (low, mid, and high) to place each element in its correct position without requiring an additional array or a sorting function.
+
+## Time Efficiency:
+
+Each element is processed at most once, so the algorithm runs in O(n) time, where n is the number of elements in the array.
+
+## Space Efficiency:
+
+The algorithm sorts the array in place using only three pointer variables. Therefore, the space complexity is O(1) since no extra data structures proportional to the input size are used.

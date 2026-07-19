@@ -1,13 +1,15 @@
 <!--
 Problem 2: Search in a Rotated Sorted Array
 
-Provide an explanation for your answer, clearly organizing your thoughts into 
-concise and easy-to-understand language.
+## Reasoning Behind Decisions:
 
-Focus on explaining the reasoning behind your decisions rather than giving a 
-detailed description of the code. For instance, why did you choose a particular 
-data structure? Additionally, discuss the efficiency of your solution in terms 
-of time and space complexity. If necessary, you can support your explanation 
-with code snippets or mathematical formulas. For guidance on how to write 
-formulas in markdown, refer to https://docs.github.com/en/get-started/writing-on-github/working-with-advanced-formatting/writing-mathematical-expressions.
--->
+I used a modified binary search because the array is sorted but rotated. At each step, one half of the array is always sorted. By identifying the sorted half and checking whether the target lies within it, I can safely discard the other half. This maintains the efficiency of binary search while correctly handling the rotation.
+
+## Time Efficiency:
+
+The algorithm halves the search space in every iteration, resulting in a time complexity of O(log n).
+
+## Space Efficiency:
+
+The algorithm uses only a few variables (left, right, and mid) and does not require any additional data structures. 
+Therefore, the space complexity is O(1).

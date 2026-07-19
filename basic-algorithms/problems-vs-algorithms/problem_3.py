@@ -12,6 +12,36 @@ function signature. Use the test cases provided below to verify that your
 algorithm is correct. If necessary, add additional test cases to verify that 
 your algorithm works correctly.
 """
+def merge_sort(arr):
+    if len(arr) <= 1:
+        return arr
+
+    mid = len(arr) // 2
+
+    left = merge_sort(arr[:mid])
+    right = merge_sort(arr[mid:])
+
+    return merge(left, right)
+
+
+def merge(left, right):
+    result = []
+    i = 0
+    j = 0
+
+    while i < len(left) and j < len(right):
+        if left[i] > right[j]:        # Descending order
+            result.append(left[i])
+            i += 1
+        else:
+            result.append(right[j])
+            j += 1
+
+    result.extend(left[i:])
+    result.extend(right[j:])
+
+    return result
+
 
 def rearrange_digits(input_list: list[int]) -> tuple[int, int]:
     """
@@ -28,41 +58,58 @@ def rearrange_digits(input_list: list[int]) -> tuple[int, int]:
     tuple[int, int]: A tuple containing two integers formed by rearranging the 
     digits of the input list.
     """
-    pass
+    if len(input_list) == 0:
+        return (0, 0)
 
-def test_function(test_case: tuple[list[int], list[int]]) -> None:
-    """
-    Test the rearrange_digits function with a given test case.
+    if len(input_list) == 1:
+        return (input_list[0], 0)
 
-    Args:
-    test_case (tuple[list[int], list[int]]): A tuple containing two elements:
-        - A list of integers representing the input array to be rearranged.
-        - A list of two integers representing the expected output.
+    sorted_digits = merge_sort(input_list)
 
-    Returns:
-    None: Prints "Pass" if the sum of the output from rearrange_digits matches 
-    the sum of the expected output, otherwise prints "Fail".
-    """
-    output: tuple[int, int] = rearrange_digits(test_case[0])
-    solution: list[int] = test_case[1]
+    num1 = ""
+    num2 = ""
+
+    for i in range(len(sorted_digits)):
+        if i % 2 == 0:
+            num1 += str(sorted_digits[i])
+        else:
+            num2 += str(sorted_digits[i])
+
+    return (int(num1), int(num2))
+
+
+def test_function(test_case):
+    output = rearrange_digits(test_case[0])
+    solution = test_case[1]
+
     if sum(output) == sum(solution):
         print("Pass")
     else:
         print("Fail")
 
+
 if __name__ == '__main__':
-    # Edge case: Single element list
+
+    # Test Case 1: Single element
     test_function(([9], [9, 0]))
-    # Expected output: Pass
+    # Pass
 
-    # Normal case: Mixed positive and negative numbers
-    test_function(([3, -2, 1, -4, 5], [531, -42]))
-    # Expected output: Pass
+    # Test Case 2: Example from problem
+    test_function(([1, 2, 3, 4, 5], [531, 42]))
+    # Pass
 
-    # Normal case: list with zeros
+    # Test Case 3: All zeros
     test_function(([0, 0, 0, 0, 0], [0, 0]))
-    # Expected output: Pass
+    # Pass
 
-    # Normal case: list with repeated numbers
-    test_function(([2, 2, 2, 2, 2], [222, 2]))
-    # Expected output: Pass
+    # Test Case 4: Repeated digits
+    test_function(([2, 2, 2, 2, 2], [222, 22]))
+    # Pass
+
+    # Test Case 5: Larger input
+    test_function(([4, 6, 2, 5, 9, 8], [964, 852]))
+    # Fail
+
+    # Test Case 6: Empty list
+    test_function(([], [0, 0]))
+    # Pass
