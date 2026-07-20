@@ -146,7 +146,7 @@ class Router:
 router = Router("root handler", "not found handler") # remove the 'not found handler' if you did not implement this
 router.add_handler("/home/about", "about handler")  # add a route
 
-## some lookups with the expected output
+## some lookups with expected output
 print(router.lookup("/")) # should print 'root handler'
 print(router.lookup("/home")) # should print 'not found handler' or None if you did not implement one
 print(router.lookup("/home/about")) # should print 'about handler'

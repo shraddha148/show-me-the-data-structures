@@ -16,4 +16,5 @@ If the path contains m parts, the time complexity is O(m).
 ## Space Efficiency:
 
 The Trie stores one node for each unique path component. 
-Therefore, the space complexity is O(n), where n is the total number of nodes created for all routes. Each node stores only a dictionary of child nodes and an optional handler, making the solution memory efficient for shared path prefixes.
+Therefore, the space complexity is O(n), where n is the total number of nodes created for all routes.
+Each node stores only a dictionary of child nodes and an optional handler, making the solution memory efficient for shared path prefixes.

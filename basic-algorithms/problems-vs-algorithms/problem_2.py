@@ -83,7 +83,7 @@ if __name__ == '__main__':
     test_function([[4, 5, 6, 7, 0, 1, 2], 6])
     # Expected: Pass
 
-    # Additional Test Case 5 (Not Present)
+    # Edge Case 5 (Not Present)
     test_function([[4, 5, 6, 7, 0, 1, 2], 10])
     # Expected: Pass
 

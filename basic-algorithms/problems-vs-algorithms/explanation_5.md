@@ -17,6 +17,6 @@ Collect Suffixes: O(k), where k is the number of characters traversed in the sub
 ## Space Complexity:
 
 Trie Storage: (N), where N is the total number of characters in all words.
-Recursive Search: O(h), where *h* is the height of the Trie.
+Recursive Search: O(h), where h is the height of the Trie.
 
 Overall, a Trie provides an efficient and scalable solution for implementing autocomplete.

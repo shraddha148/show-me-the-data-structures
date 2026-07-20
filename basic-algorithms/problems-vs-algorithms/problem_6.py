@@ -64,5 +64,5 @@ if __name__ == '__main__':
     # Expected Output: (42, 42)
 
     # Test Case 6: All elements same
-    print(get_min_max([7, 7, 7, 7]))
+    print(get_min_max([7, 7, 7, 7, 7]))
     # Expected Output: (7, 7)

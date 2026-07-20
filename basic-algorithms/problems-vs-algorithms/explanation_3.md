@@ -11,4 +11,5 @@ Merge Sort takes O(n log n) time, and creating the two numbers requires one addi
 
 ## Space Efficiency:
 
-Merge Sort requires additional space for the temporary arrays created during merging, resulting in a space complexity of O(n). The two output numbers use only constant extra space apart from the sorted array.
+Merge Sort requires additional space for the temporary arrays created during merging, resulting in a space complexity of O(n). 
+The two output numbers use only constant extra space apart from the sorted array.

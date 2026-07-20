@@ -60,5 +60,5 @@ if __name__ == "__main__":
     # Additional Test Case 6 (All Twos)
     test_function([2, 2, 2, 2])
 
-    # Additional Test Case 7 (Reverse Order)
+    # Edge Case (Reverse Order)
     test_function([2, 2, 2, 1, 1, 1, 0, 0, 0])

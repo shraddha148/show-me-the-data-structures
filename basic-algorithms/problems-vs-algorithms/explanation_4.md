@@ -1,4 +1,3 @@
-# Explanation
 
 ## Reasoning Behind Decisions:
 
@@ -10,4 +9,5 @@ Each element is processed at most once, so the algorithm runs in O(n) time, wher
 
 ## Space Efficiency:
 
-The algorithm sorts the array in place using only three pointer variables. Therefore, the space complexity is O(1) since no extra data structures proportional to the input size are used.
+The algorithm sorts the array in place using only three pointer variables. 
+Therefore, the space complexity is O(1) since no extra data structures proportional to the input size are used.

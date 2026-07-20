@@ -13,4 +13,5 @@ The algorithm scans the list only once, performing constant-time comparisons for
 
 ## Space Efficiency:
 
-The algorithm uses only two additional variables (minimum and maximum) regardless of the input size. Hence, the space complexity is O(1).
+The algorithm uses only two additional variables (minimum and maximum) regardless of the input size. 
+Hence, the space complexity is O(1).

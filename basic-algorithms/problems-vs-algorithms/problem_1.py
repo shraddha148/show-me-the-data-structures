@@ -58,8 +58,8 @@ if __name__ == "__main__":
     # Test Case 5
     print("Pass" if 6 == sqrt(27) else "Fail")     # Expected: Fail
 
-    # Additional Edge Case 1 (Negative Number)
+    # Edge Case 1 (Negative Number)
     print(sqrt(-4))        # Expected: None
 
-    # Additional Edge Case 2 (Large Number)
+    # Edge Case 2 (Large Number)
     print(sqrt(144))   # Expected: 12

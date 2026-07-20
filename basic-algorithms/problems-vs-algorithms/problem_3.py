@@ -110,6 +110,6 @@ if __name__ == '__main__':
     test_function(([4, 6, 2, 5, 9, 8], [964, 852]))
     # Fail
 
-    # Test Case 6: Empty list
+    # Edge Case 6: Empty list
     test_function(([], [0, 0]))
     # Pass
